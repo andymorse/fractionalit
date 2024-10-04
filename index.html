@@ -3,107 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fractional IT - Your Trusted IT MSP Partner</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Fractional IT - Missoula's Premier MSP</title>
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
             color: #333;
+            line-height: 1.6;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
+        .header {
             background-color: #025492;
             color: white;
-            padding: 20px 0;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        h1, h2, h3 {
-            font-family: 'Bebas Neue', cursive;
-            color: #025492;
+        .header-logo {
+            width: auto;
+            height: 50px;
+            display: block;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
+            margin-left: 20px;
         }
         .hero {
             background-color: #025492;
             color: white;
+            padding: 4rem 2rem;
             text-align: center;
-            padding: 50px 0;
         }
-        .hero img {
-            max-width: 300px;
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
             height: auto;
+            margin: 0 auto 2rem;
+            display: block;
         }
-        .content-section {
-            padding: 50px 0;
-            background-color: white;
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
-        .content-item {
-            margin-bottom: 40px;
-        }
-        footer {
+        .cta-button {
             background-color: #ffc900;
             color: #025492;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .content-section {
+            padding: 3rem 2rem;
+        }
+        .content-section h2 {
+            color: #025492;
+            margin-bottom: 2rem;
             text-align: center;
-            padding: 20px 0;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+        .service {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .service h3 {
+            color: #025492;
+            margin-top: 0;
+        }
+        .contact {
+            background-color: #025492;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+        .contact p {
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="header">
+        <img src="Fractional_IT-logo_Small.png" alt="Fractional IT Logo" class="header-logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
     </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <img src="/api/placeholder/300/150" alt="Fractional IT Logo">
+    <section class="hero">
+        <img src="Fractional_IT_logo-Main.png" alt="Fractional IT Logo and Business Name" class="hero-image">
+        <p>Empowering Missoula businesses with cutting-edge IT solutions tailored to the unique needs of our mountain community.</p>
+        <a href="contact.html" class="cta-button">Get Started</a>
+    </section>
+    <section class="content-section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Managed IT Services</h3>
+                <p>Comprehensive IT management tailored for Missoula's diverse business landscape, from startups to established enterprises.</p>
             </div>
-        </section>
-
-        <section class="content-section">
-            <div class="container">
-                <div class="content-item">
-                    <h2>Our Mission</h2>
-                    <p>At Fractional IT, we're committed to providing top-tier IT and cybersecurity solutions tailored to the unique needs of each client. Our goal is to empower businesses with robust, scalable, and secure technology infrastructure, allowing them to focus on their core operations while we handle their IT needs.</p>
-                </div>
-                
-                <div class="content-item">
-                    <h2>Our Approach</h2>
-                    <p>We believe in a proactive approach to IT management and cybersecurity. By leveraging our extensive experience and staying at the forefront of technological advancements, we deliver innovative solutions that not only address current challenges but also anticipate future needs. Our team's expertise spans a wide range of IT disciplines, ensuring comprehensive coverage for all your technology requirements.</p>
-                </div>
+            <div class="service">
+                <h3>Cybersecurity</h3>
+                <p>Robust security solutions to protect your business from threats, ensuring your data stays safe in our connected mountain town.</p>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Fractional IT. All rights reserved.</p>
+            <div class="service">
+                <h3>Cloud Solutions</h3>
+                <p>Harness the power of the cloud to enhance productivity and flexibility, perfect for Missoula's dynamic work environment.</p>
+            </div>
+            <div class="service">
+                <h3>Network Installation and Support</h3>
+                <p>Expert setup and maintenance of your business network infrastructure, ensuring seamless connectivity across Missoula's varied terrain.</p>
+            </div>
         </div>
-    </footer>
+    </section>
+    <section class="contact">
+        <h2>Ready to Elevate Your IT?</h2>
+        <p>Let's discuss how we can support your Missoula business with top-tier IT solutions.</p>
+        <a href="contact.html" class="cta-button">Contact Us Today</a>
+    </section>
 </body>
 </html>

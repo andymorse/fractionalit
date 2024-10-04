@@ -3,130 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fractional IT - Contact Us</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Contact Fractional IT - Missoula's Premier MSP</title>
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
             color: #333;
+            line-height: 1.6;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
+        .header {
             background-color: #025492;
             color: white;
-            padding: 20px 0;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        h1, h2, h3 {
-            font-family: 'Bebas Neue', cursive;
-            color: #025492;
+        .header-logo {
+            width: auto;
+            height: 50px;
+            display: block;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
+            margin-left: 20px;
         }
-        .page-title {
+        .hero {
             background-color: #025492;
             color: white;
-            text-align: center;
-            padding: 50px 0;
-        }
-        .page-title h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: white;
-        }
-        .contact-content {
-            padding: 50px 0;
-            background-color: white;
+            padding: 4rem 2rem;
             text-align: center;
         }
-        .contact-info {
-            max-width: 600px;
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .content-section {
+            padding: 3rem 2rem;
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
+        }
+        .content-section h2 {
+            color: #025492;
+            margin-bottom: 1.5rem;
         }
         .email-link {
             display: inline-block;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #025492;
-            color: white;
+            margin-top: 2rem;
             text-decoration: none;
-            border-radius: 50%;
-            font-size: 24px;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            transition: background-color 0.3s ease;
+            color: #025492;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
         .email-link:hover {
-            background-color: #013a66;
+            transform: scale(1.1);
         }
-        footer {
-            background-color: #ffc900;
-            color: #025492;
-            text-align: center;
-            padding: 20px 0;
+        .email-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="header">
+        <img src="Fractional_IT-logo_Small.png" alt="Fractional IT Logo" class="header-logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
     </header>
-
-    <main>
-        <section class="page-title">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch with Fractional IT</p>
-            </div>
-        </section>
-
-        <section class="contact-content">
-            <div class="container">
-                <div class="contact-info">
-                    <h2>We're Here to Help</h2>
-                    <p>Have questions about our services or want to discuss how we can help your business? We'd love to hear from you!</p>
-                    <a href="mailto:webpage@fractionalit.io" class="email-link" title="Email us">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <p><strong>Email:</strong> webpage@fractionalit.io</p>
-                    <p>Our team is dedicated to providing prompt and helpful responses. We strive to reply to all inquiries within one business day. Your message is important to us, and we look forward to assisting you with your IT and cybersecurity needs.</p>
-                    <p>Whether you're looking for general information, need technical support, or want to explore our services in more depth, don't hesitate to reach out. We're here to ensure your business has the IT support it needs to thrive.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Fractional IT. All rights reserved.</p>
-        </div>
-    </footer>
+    <section class="hero">
+        <h1>Contact Fractional IT</h1>
+    </section>
+    <section class="content-section">
+        <h2>Get in Touch</h2>
+        <p>We're here to answer your questions and discuss how we can support your IT needs. Whether you're looking for managed services, cybersecurity solutions, or expert IT consultation, our team is ready to help.</p>
+        <p>Reach out to us today, and let's start a conversation about elevating your business's technology infrastructure.</p>
+        
+        <a href="mailto:info@fractionalit.com" class="email-link">
+            <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#025492" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <br>
+            info@fractionalit.com
+        </a>
+    </section>
 </body>
 </html>
