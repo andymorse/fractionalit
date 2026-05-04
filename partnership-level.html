@@ -217,6 +217,99 @@
             text-transform: uppercase;
         }
 
+        /* ── Page 2 ── */
+        .pg2-header {
+            background: var(--navy-deep);
+            padding: 28px 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .pg2-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--navy) 100%);
+        }
+        .pg2-header img { height: 38px; width: auto; }
+        .pg2-header-title {
+            font-family: var(--font-title);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .pg2-body {
+            flex: 1;
+            padding: 36px 60px 28px;
+            background: var(--white);
+        }
+        .pg2-intro {
+            font-family: var(--font-title);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .desc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
+            row-gap: 0;
+        }
+        .desc-item {
+            display: flex;
+            gap: 13px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(2,84,146,0.07);
+            align-items: flex-start;
+        }
+        .desc-item:nth-last-child(-n+2) { border-bottom: none; }
+
+        .desc-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .desc-icon svg {
+            width: 13px;
+            height: 13px;
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .desc-text { flex: 1; }
+        .desc-name {
+            font-family: var(--font-title);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 3px;
+            letter-spacing: 0.2px;
+        }
+        .desc-body {
+            font-family: var(--font-body);
+            font-size: 11.5px;
+            line-height: 1.55;
+            color: #4b5563;
+        }
+
         /* ── Print ── */
         @media print {
             body { background: none; }
@@ -225,7 +318,9 @@
                 width: 100%;
                 min-height: 100vh;
                 box-shadow: none;
+                page-break-after: always;
             }
+            .page:last-child { page-break-after: avoid; }
             @page { size: letter; margin: 0; }
         }
     </style>
@@ -346,6 +441,159 @@
                     <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 </div>
                 <span class="service-name">Full IT Support</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Gold band -->
+    <div class="gold-band">
+        <span class="gold-band-text">Your IT Team</span>
+        <span class="gold-band-dot"></span>
+        <span class="gold-band-text">Just Fractional</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <span class="footer-contact"><a href="mailto:howdy@fractionalit.io">howdy@fractionalit.io</a></span>
+        <span class="footer-url">fractionalit.io</span>
+    </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     PAGE 2 — Service Descriptions
+═══════════════════════════════════ -->
+<div class="page">
+
+    <div class="pg2-header">
+        <img src="https://fractionalit.io/Fractional_IT_logo-Main.png" alt="Fractional IT">
+        <div class="pg2-header-title">Partnership Level — Service Descriptions</div>
+    </div>
+
+    <div class="pg2-body">
+        <div class="pg2-intro">What Each Service Does For Your Business</div>
+
+        <div class="desc-grid">
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">IT Support Bridge</div>
+                    <div class="desc-body">A remote monitoring and management platform that keeps a watchful eye on all your devices, automates software updates, manages support requests, and maintains a full inventory of your technology — so nothing falls through the cracks.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Managed Detection &amp; Response</div>
+                    <div class="desc-body">24/7 monitoring of your computers and servers by a dedicated security operations team who detect and neutralize cyberattacks in real time — before they have a chance to damage your business.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Identity Threat Detection</div>
+                    <div class="desc-body">Monitors your employee accounts and email around the clock to detect unauthorized access, account takeovers, and credential-based attacks — catching intruders at the door before they can move through your systems.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Critical System Backups</div>
+                    <div class="desc-body">Automated, complete backups of your cloud workspace — email, files, and collaboration data — plus any critical on-site data. If ransomware strikes or files disappear, your business can recover quickly and completely.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Password Management</div>
+                    <div class="desc-body">A secure, centralized vault where your team generates and stores strong, unique passwords for every account — eliminating weak passwords, password reuse, and the costly breaches that come with them.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Mac Device Management</div>
+                    <div class="desc-body">Centralized visibility and control over every company Mac and Apple device — including remote software deployment, security policy enforcement, and the ability to troubleshoot or wipe a lost device instantly.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Application Control</div>
+                    <div class="desc-body">Continuously scans your endpoints for missing patches, misconfigured security tools, and unauthorized software — then prioritizes fixes based on what attackers are most actively exploiting right now.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Security Awareness Training</div>
+                    <div class="desc-body">Short, engaging lessons and simulated phishing tests that teach your team to recognize and avoid common threats. Also frequently required by cyber liability insurance carriers — helping you stay both protected and insurable.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">IT Account Management</div>
+                    <div class="desc-body">We make sure the right people have access to the right systems — and only those systems. Following least-privilege best practices, we handle user provisioning, permission changes, and clean offboarding so access never lingers.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Security Incident Management</div>
+                    <div class="desc-body">When something goes wrong, response time is everything. We act as your incident command — containing the threat, restoring normal operations, and walking you through any notification or documentation requirements.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Network Management</div>
+                    <div class="desc-body">We monitor and maintain your office network — routers, switches, firewalls, and wireless access points — keeping your team reliably connected and your infrastructure secure, optimized, and up to date.</div>
+                </div>
+            </div>
+
+            <div class="desc-item">
+                <div class="desc-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="desc-text">
+                    <div class="desc-name">Full IT Support</div>
+                    <div class="desc-body">Your dedicated IT team for everyday technology questions and issues — from software hiccups to hardware headaches. We're in your corner and committed to getting you back up and running as fast as possible.</div>
+                </div>
             </div>
 
         </div>
