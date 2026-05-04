@@ -783,6 +783,69 @@
         .cta-email-note a { color: var(--sky); transition: color 0.2s; }
         .cta-email-note a:hover { color: var(--gold); }
 
+        /* ── Assessment Form ── */
+        .assess-form {
+            margin-top: 36px;
+            text-align: left;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .form-row.full { grid-template-columns: 1fr; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label {
+            font-family: var(--font-title);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+        }
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--white);
+            transition: border-color 0.2s, background 0.2s;
+            outline: none;
+            width: 100%;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.12);
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit { margin-top: 20px; text-align: center; }
+        .form-error { margin-top: 12px; text-align: center; font-size: 13px; color: #ff8a8a; display: none; }
+
+        /* Success state */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        .form-success .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .form-success h3 {
+            font-family: var(--font-title);
+            font-size: 22px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .form-success p { color: rgba(255,255,255,0.65); font-size: 15px; }
+
         /* =========================================
            FOOTER
         ========================================= */
@@ -1356,17 +1419,56 @@
 ============================================================ -->
 <section id="contact" class="section on-dark">
     <div class="container">
-        <div class="cta-inner reveal">
+        <div class="cta-inner reveal" style="max-width:760px;">
             <span class="section-label">Get Started Today</span>
             <h2>Ready to Make IT <em>Simple?</em></h2>
             <p>
                 No pressure. No jargon. Just a straight conversation about your technology needs and how Fractional IT can help you run better, safer, and smarter.
             </p>
-            <div class="cta-actions">
-                <a href="mailto:howdy@fractionalit.io" class="btn btn-gold" style="font-size:16px;padding:18px 44px;">
-                    Get Your Free IT Assessment &rarr;
-                </a>
+
+            <!-- Success message -->
+            <div class="form-success" id="form-success">
+                <div class="success-icon">✓</div>
+                <h3>Message Received!</h3>
+                <p>Thanks for reaching out. Andy will be in touch with you shortly.</p>
             </div>
+
+            <!-- Assessment form -->
+            <form class="assess-form" id="assessment-form" action="https://formspree.io/f/mjglyngr" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Acme Co.">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone <span style="opacity:0.5;font-weight:400;">(optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="(406) 555-0100">
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="message">What's on your mind?</label>
+                        <textarea id="message" name="message" placeholder="Tell us a bit about your business and your current IT situation..."></textarea>
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-gold" style="font-size:16px;padding:18px 44px;">
+                        Get Your Free IT Assessment &rarr;
+                    </button>
+                    <div class="form-error" id="form-error">Something went wrong. Please try emailing us directly at <a href="mailto:howdy@fractionalit.io" style="color:var(--sky);">howdy@fractionalit.io</a></div>
+                </div>
+            </form>
+
             <div class="cta-email-note">
                 Or reach us directly at <a href="mailto:howdy@fractionalit.io">howdy@fractionalit.io</a>
             </div>
@@ -1459,30 +1561,34 @@
         });
     }, { passive: true });
 
-    /* --- Contact form submission (Formspree) --- */
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+    /* --- Assessment form submission (Formspree) --- */
+    const assessForm = document.getElementById('assessment-form');
+    if (assessForm) {
+        assessForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = contactForm.querySelector('.form-submit');
+            const btn = assessForm.querySelector('button[type="submit"]');
+            const errEl = document.getElementById('form-error');
             btn.textContent = 'Sending…';
             btn.disabled = true;
+            errEl.style.display = 'none';
             try {
-                const res = await fetch(contactForm.action, {
+                const res = await fetch(assessForm.action, {
                     method: 'POST',
-                    body: new FormData(contactForm),
+                    body: new FormData(assessForm),
                     headers: { 'Accept': 'application/json' }
                 });
                 if (res.ok) {
-                    contactForm.style.display = 'none';
-                    document.getElementById('formSuccess').style.display = 'block';
+                    assessForm.style.display = 'none';
+                    document.getElementById('form-success').style.display = 'block';
                 } else {
-                    btn.textContent = 'Something went wrong — please email us directly.';
+                    btn.textContent = 'Get Your Free IT Assessment →';
                     btn.disabled = false;
+                    errEl.style.display = 'block';
                 }
             } catch {
-                btn.textContent = 'Something went wrong — please email us directly.';
+                btn.textContent = 'Get Your Free IT Assessment →';
                 btn.disabled = false;
+                errEl.style.display = 'block';
             }
         });
     }
