@@ -1,3 +1,5 @@
 # Cloudflare Pages redirects
 # Old extension-based URL -> clean URL
 /passwords.htm  /passwords  301
+# /contact is not a page -- send it to the homepage contact section
+/contact  /#contact  301
